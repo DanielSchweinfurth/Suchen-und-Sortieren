@@ -7,10 +7,34 @@ public class Test {
         fillArrayRand(feld1);
 
         Suche search = new Suche(feld1);        //ein neues Objekt der Klasse Suche wird erstellt und man übergibt der Klasse das erstellte Feld
+            
+
+
         
+        //     //Auskommentieren = strg + k +c ; unkommentieren = strg + k + u
+        //     //Bubblesort
+        // long zeitStart = System.nanoTime();
+        // search.bubblesort();
+        // long zeitEnde = System.nanoTime();
+        // System.out.println("Der Prozess hat ca. : " + (zeitEnde-zeitStart) / 1000000000 + "s gedauert" );
+        // System.out.println("Der Prozess hat : " + search.counter() + " operationen gebraucht");
+
+        
+            //Randomsort
+        // long zeitStart = System.nanoTime();
+        // search.randomsort();
+        // System.out.println();
+        // //search.ausgeben();
+        // long zeitEnde = System.nanoTime();
+        // System.out.println();
+        // System.out.println("Der Prozess hat ca. : " + (zeitEnde-zeitStart) / 1000000000 + "s gedauert" );
+        // System.out.println("Der Prozess hat : " + search.counter() + " operationen gebraucht");
+
+            //Selectionsort
         search.ausgeben();
-        
-        System.out.println(search.isSorted());
+        System.out.println();
+        search.selectionsort();
+        search.ausgeben();
     }
 
     //VARAIBLEN

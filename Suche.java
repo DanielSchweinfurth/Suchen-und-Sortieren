@@ -1,14 +1,20 @@
+import java.util.Random;
+
 //IMPORTS
 
 //BEGINNING OF CLASS
 public class Suche {
     //VARAIBLEN
    private int[] feldToSort;
+   private int loopCounter;
     //CONSTRUCKTOREN
     public Suche(int[] feld){
         this.feldToSort = feld;
     }
     //GETTER UND SETTER
+    public int counter() {
+        return loopCounter;
+    }
 
     //METHODEN
     public void ausgeben(){
@@ -35,22 +41,24 @@ public class Suche {
     }
 
     public boolean isSorted(){
-        for (int i = 0; i < feldToSort.length-1; i++) {
-            if (feldToSort[i] < feldToSort[i+1]) {
-                return true;
-            }
+    for (int i = 0; i < feldToSort.length -1; i++) {
+        if (feldToSort[i] > feldToSort[i +1]) {
+            return false;            
         }
-        return false;
     }
+    return true;
+    }
+
 
     //Bubblesort
     public void bubblesort(){
-        //int lang = feldToSort.length;
         System.out.println("Aufgerufen Bubble Sort" );
         for(int n = 0; n < feldToSort.length -1; n++){
+            ausgeben();
+            loopCounter ++;
+            System.out.println();
             for(int i = 0;i < feldToSort.length -1; i++){
                 if(vergleichen(feldToSort[i], feldToSort[i+1])){
-                    System.out.println("Nummer 1 größer");
                     tauschen(i, i+1);
                 }
             }    
@@ -58,29 +66,44 @@ public class Suche {
     }
     //Selectionsort
     public void selectionsort(){
-
-        //int minIndex;//für den index des kleinsten Elemnts
-        //int temp;//Hilfsvariable 
-
-    } 
-    //Insertionsort
-    public void insertionsort() {
+        int kleinstIndex = feldToSort[1];
+        int untereGrenze = 0;
+        for (int i = 0; i < feldToSort.length; i++) {
+            if(feldToSort[i] < kleinstIndex){
+                kleinstIndex = i;
+                tauschen(untereGrenze, kleinstIndex);
+                untereGrenze ++;
+            }
+        }
         
     }
+
+    //Insertionsort
+    public void insertionsort() {
+
+        
+    }
+
     //Gnomesort
     //Quicksort
     //Heapsort
     //Mergesort
     //Randomsort
     public void randomsort(){
-        while (isSorted() == false){
-            
+        int ersterIndex;
+        int zweiterIndex;
+        Random zufall = new Random();
+        while (isSorted() == false){ 
+            ersterIndex = zufall.nextInt(feldToSort.length);
+            zweiterIndex = zufall.nextInt(feldToSort.length);
+            tauschen(ersterIndex, zweiterIndex);
+
+            loopCounter++;
+            ausgeben();
+            System.out.println();
         }
-        
+        //System.out.println(loopCounter);
     }
 
 
-
-
-    
 }
