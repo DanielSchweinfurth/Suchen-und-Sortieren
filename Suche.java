@@ -1,5 +1,5 @@
 //IMPORTS
-import java.util.random.*;
+
 //BEGINNING OF CLASS
 public class Suche {
     //VARAIBLEN
@@ -34,25 +34,50 @@ public class Suche {
 
     }
 
+    public boolean isSorted(){
+        for (int i = 0; i < feldToSort.length-1; i++) {
+            if (feldToSort[i] < feldToSort[i+1]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     //Bubblesort
     public void bubblesort(){
         //int lang = feldToSort.length;
         System.out.println("Aufgerufen Bubble Sort" );
-        for(int n = 0; n < feldToSort.length; n++){
-            for(int i = 0;i < feldToSort.length; i++){
-                if(vergleichen(feldToSort[i], feldToSort[i+1]) == true){
+        for(int n = 0; n < feldToSort.length -1; n++){
+            for(int i = 0;i < feldToSort.length -1; i++){
+                if(vergleichen(feldToSort[i], feldToSort[i+1])){
                     System.out.println("Nummer 1 größer");
-                    tauschen(feldToSort[i], feldToSort[i+1]);
+                    tauschen(i, i+1);
                 }
             }    
         }    
     }
-    //Selectionsort 
+    //Selectionsort
+    public void selectionsort(){
+
+        //int minIndex;//für den index des kleinsten Elemnts
+        //int temp;//Hilfsvariable 
+
+    } 
     //Insertionsort
+    public void insertionsort() {
+        
+    }
     //Gnomesort
     //Quicksort
     //Heapsort
     //Mergesort
+    //Randomsort
+    public void randomsort(){
+        while (isSorted() == false){
+            
+        }
+        
+    }
 
 
 
